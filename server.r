@@ -30,7 +30,7 @@ shinyServer(function(input, output) {
     output$plot <- renderPlot({
         print(ggplot(sample_ci(), aes(x = n, ymin = ci_lb, ymax = ci_ub,
                                       colour = contains_mean))
-              + geom_hline(xintercept = 0, colour="blue")
+              + geom_hline(yintercept = 0, colour="blue")
               + geom_linerange()
               + coord_flip()
               + scale_x_continuous("Amostras")
