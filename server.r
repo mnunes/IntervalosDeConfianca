@@ -1,7 +1,3 @@
-library("shiny")
-library("ggplot2")
-library("plyr")
-
 norm_mean <- 0
 norm_sd <- 1
 
