@@ -1,5 +1,3 @@
-library("shiny")
- 
 shinyUI(pageWithSidebar(
     headerPanel("Intervalos de Confiança"),
 
@@ -14,8 +12,29 @@ shinyUI(pageWithSidebar(
         ),
 
     mainPanel(
-        textOutput("npct"),
-        plotOutput("plot"),
-        p("A população tem média 0 e desvio padrão 1.",
-          "Intervalos que incluem a média populacional estão coloridos de preto e intervalos que a excluem estão coloridos de vermelho. Baseado no trabalho de https://gist.github.com/jrnold/7124461.")
-    )))
+      
+      tabsetPanel(type = "tabs",
+                  selected = "Aplicativo",
+        
+                  tabPanel("Aplicativo",
+                           column(width = 12,
+                                  plotOutput("plot"),
+                                  p("Desenvolvido por", a("Marcus Nunes", href="http://marcusnunes.me")
+                                    )
+                           )
+                  ),
+
+                  tabPanel("Sobre",
+                           column(width = 12,
+                                  p("A população tem média 0 e desvio padrão 1. Amostras aleatórias são sorteadas a partir desta população e os intervalos de confiança para a média são calculados em seguida.",
+                                    "Intervalos que incluem a média populacional estão coloridos de preto e intervalos que a excluem estão coloridos de vermelho. Baseado no trabalho de", a("jrnold", href="https://gist.github.com/jrnold/7124461"), "."),
+                                  p("Desenvolvido por", a("Marcus Nunes", href="http://marcusnunes.me")
+                                  )
+                           )
+                  )
+                  
+      )
+    )
+)
+)
+
